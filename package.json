@@ -1,0 +1,54 @@
+{
+  "name": "app-backend",
+  "version": "0.0.1",
+  "description": "share printed books",
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "express"
+  ],
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "demo": "NODE_ENV=development DEBUG=sr.* node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/share-res/app-backend"
+  },
+  "author": {
+    "name": "alex",
+    "email": "lsj178@139.com",
+    "url": "https://github.com/lshengjian"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/share-res/app-backend/issues"
+  },
+  "homepage": "https://github.com/share-res/app-backend",
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "minimist": "^1.2.0",
+    "mongoose": "^4.5.3",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "expect.js": "^0.3.1",
+    "gulp-exit": "0.0.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-mocha": "^2.2.0",
+    "jshint-stylish": "^2.2.0",
+    "lodash": "^4.13.1"
+  },
+  "readmeFilename": "README.md",
+  "_id": "app-backend@0.0.1"
+}
