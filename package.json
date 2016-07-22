@@ -1,16 +1,24 @@
 {
-  "name": "app-backend",
-  "version": "0.0.1",
+  "name": "res-share-app-backend",
+  "version": "0.2.1",
   "description": "share printed books",
   "keywords": [
     "mongodb",
     "mongoose",
-    "express"
+    "koa2",
+    "babel",
+    "es2015"
   ],
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
-    "demo": "NODE_ENV=development DEBUG=sr.* node server.js"
+    "test": "NODE_ENV=test DEBUG=res-share.* ava 'src/tests/**/*.js'",
+    "start": "NODE_ENV=development DEBUG=res-share.* nodemon index.js"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,28 +35,30 @@
   },
   "homepage": "https://github.com/share-res/app-backend",
   "dependencies": {
-    "async": "^2.0.0-rc.6",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "express-session": "^1.14.0",
-    "minimist": "^1.2.0",
-    "mongoose": "^4.5.3",
-    "morgan": "^1.7.0",
-    "multer": "^1.1.0",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.0.0"
+    "ava": "^0.15.2",
+    "babel-core": "^6.10.4",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-3": "^6.11.0",
+    "debug": "^2.2.0",
+    "handlebars": "^4.0.5",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^3.1.0",
+    "koa-convert": "^1.2.0",
+    "koa-csrf": "^2.5.0",
+    "koa-generic-session": "^1.11.1",
+    "koa-generic-session-mongo": "^0.2.5",
+    "koa-passport": "^2.1.1",
+    "koa-router": "^7.0.1",
+    "koa-static": "^3.0.0",
+    "mongoose": "^4.5.4",
+    "passport-github": "^1.1.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "expect.js": "^0.3.1",
-    "gulp-exit": "0.0.2",
-    "gulp-jshint": "^2.0.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-mocha": "^2.2.0",
-    "jshint-stylish": "^2.2.0",
-    "lodash": "^4.13.1"
+    "should": "^8.2.0",
+    "supertest": "^1.1.0"
   },
   "readmeFilename": "README.md",
-  "_id": "app-backend@0.0.1"
+  "_id": "app-backend@0.2.1"
 }

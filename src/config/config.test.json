@@ -1,0 +1,9 @@
+{
+  "root":"../",
+  "port": 8080,
+  "DB": {
+    "mongoURL": "mongodb://127.0.0.1:27017/res-share-test",
+    "init": false,
+    "options": {}
+  }
+}

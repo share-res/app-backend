@@ -3,10 +3,11 @@ share printed books
 
 # install
 ``` bash
+sudo npm i -g nodemon
 npm install
 ```
 
 # run
 ``` bash
-node server.js
-``` bash
+node start
+```

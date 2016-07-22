@@ -1,0 +1,9 @@
+{
+  "root":"../",
+  "port": 3000,
+  "DB": {
+    "mongoURL": "mongodb://127.0.0.1:27017/sb-db",
+    "init": true,
+    "options": {}
+  }
+}

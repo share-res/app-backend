@@ -1,43 +1,36 @@
-var gulp = require('gulp')
-  , $ = require('gulp-load-plugins')()
-  , mock = require('./db/mock')
-  , tool = require('./db/util')
+const gulp = require('gulp');
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+const path = require('path');
 
+//const concat = require('gulp-concat');
+const nodemon = require('gulp-nodemon');
 
-gulp.task('default', ['test'])
+//默认development模式
+gulp.task('default',function () {
+	nodemon({
+	  script: path.join('src','/app.js'), 
+	  ext: 'js json',
+    ignore: [
+      '.git',
+      'node_modules/'
+    ],
+	  watch: [
+	    path.join('src','/')
+	  ],
+    "execMap": {
+      "js": "node --harmony"
+    },
+	  env: { 'NODE_ENV': 'development','DEBUG': 'res-share-app:*' }
+	})
+});
 
-gulp.task('test', function () {
-  return gulp.src('./test/**/*.js')
-    .pipe($.mocha({ reporter: 'spec' }))
-    .pipe($.exit())
-})
+gulp.task('translate', () =>
+    gulp.src('src/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(babel())
+        //.pipe(concat('all.js'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('dist'))
+);
 
-
-gulp.task('dropDB', function (cb) {
-  tool.connectDB(function (err) {
-    if (err) return cb(err)
-    tool.dropDB(function (err) {
-      if (!err)
-         tool.closeDB(cb)
-      else
-         cb(err)   
-    })
-  })
-})
-
-gulp.task('initDB', function (cb) {
-  tool.connectDB(function (err) {
-    if (err) return cb(err)
-    mock.makeData(function() {
-      tool.closeDB()
-      cb(null)
-    })
-  })
-})
-
-
-gulp.task('jshint', function () {
-  return gulp.src('./**/*.js')
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-})

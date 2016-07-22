@@ -1,0 +1,5 @@
+
+//let currentPath = process.cwd();
+//console.log(currentPath);
+ 
+require('runkoa')(__dirname + '/www' )
